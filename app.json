@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "ditas",
+    "slug": "ditas",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "ditas"
+}
