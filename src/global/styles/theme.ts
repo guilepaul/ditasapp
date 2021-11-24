@@ -1,27 +1,44 @@
 export default {
     colors: {
-        primary: '#5636D3',
+        white: '#FFFFFF',
+        gray50: '#FAFAFA',
+        gray100: '#F5F5F5',
+        gray200: '#EEEEEE',
+        gray300: '#E0E0E0',
+        gray400: '#BDBDBD',
+        gray500: '#9E9E9E',
+        gray600: '#757575',
+        gray700: '#616161',
+        gray800: '#424242',
+        gray900: '#212121',
+        black: '#000000',
 
-        secondary: '#FF872C',
-        secondary_light: 'rgba(255, 135, 44, 0.3)',
+        brand_lt2:'#F4EFF4',
+        brand_lt:'#C7B1C7',
+        brand:'#723C73',
+        brand_dk:'#683769',
+        brand_dk2:'#502A51',
 
-        success: '#12A454',
-        success_light: 'rgba(18, 164, 84, 0.5)',
+        funnel_lt: '#CDE49C',
+        funnel: '#81BB07',
+        funnel_dk: '#5B8305',
 
-        attention: '#E83F5B',
-        attention_light: 'rgba(232, 63, 91, 0.5)',
+        gold_lt: '#FFF3B5',
+        gold: '#E3D06B',
+        gold_dk: '#D4B86E',
 
-        shape: '#FFFFFF',
-        title: '#363F5F',
-        text: '#969CB2',
-        text_dark: '#000000',
-        background: '#F0F2F5',
+        alert_lt: '#FF6666',
+        alert: '#FF0000',
+        alert_dk: '#B20000',
 
+        check_lt: '#66CF97',
+        check: '#00AF51',
+        check_dk: '#007A39',
     },
 
     fonts: {
-        regular: 'Poppins_400Regular',
-        medium: 'Poppins_500Medium',
-        bold: 'Poppins_700Bold',
+        regular: 'Roboto_400Regular',
+        medium: 'Roboto_500Medium',
+        bold: 'Roboto_700Bold',
     }
 }
