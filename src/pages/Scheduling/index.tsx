@@ -51,10 +51,19 @@ const serviceList = [
 
 const Scheduling: React.FC = () => {
   const navigation = useNavigation<schedulingScreenProp>();
-  const [selectedDate, setSelectedDate] = useState<MarkedDate>({} as MarkedDate);
+  const [selectedHourPosition, setSelectedHourPosition] = useState('');
+
+  const [ markedDates, setMarkedDates ] = useState('');
+  const [selectedHour, setSelectedHour] = useState('');
+  const [ markedLocale, setMarkedLocale ] = useState('Minha casa');
+  const [ markedPeriod, setMarkedPeriod ] = useState('Tarde');
+  const completeDate = (markedDates + ' ' + selectedHour + ':00')
+  
+  
   const [isEnabled, setIsEnabled] = useState(false);
   const [checked, setChecked] = useState('first');
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
 
 
   function handleChangeDate(day: DaySelected){
@@ -99,8 +108,8 @@ const Scheduling: React.FC = () => {
         <S.DescriptionWrapper>
         <S.GeneralTitle>Agendamento</S.GeneralTitle>
         <Calendar
-          markedDate={{'2021-11-25': {selected: true, marked: false    }}}
-          onDayPress={day => console.log(day)}
+          markedDate={{[markedDates]: {selected: true, marked: false}}}
+          onDayPress={({ dateString }) => setMarkedDates(dateString)}
         />
         </S.DescriptionWrapper>
         <S.SwitchWrapper>
@@ -110,24 +119,57 @@ const Scheduling: React.FC = () => {
             <Switch
             trackColor={{ false: '#767577', true: theme.colors.brand_lt }}
             thumbColor={isEnabled ? theme.colors.funnel_lt : theme.colors.brand_lt }
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={toggleSwitch}
+            ios_backgroundColor="#767577"
+            onValueChange={() => {
+                toggleSwitch()
+                isEnabled === true ?
+                setMarkedPeriod('Tarde'):
+                  setMarkedPeriod('Manhã')
+              }}
             value={isEnabled}
           />
           </S.SwitchValue>
       </S.SwitchWrapper>
       <S.PeriodWrapper>
-        <S.PeriodButton isActive={true}>
-          <S.PeriodText isActive={true} >07:00</S.PeriodText>
+        <S.PeriodButton  
+          onPress={() => {
+            setSelectedHour(isEnabled ? '07:00' : '13:00')
+            setSelectedHourPosition('1')
+          }} 
+          isActive={selectedHourPosition === '1' ? true : false}>
+          <S.PeriodText isActive={selectedHour === '1' ? true : false} >
+            {isEnabled ? '07:00' : '13:00'}
+        </S.PeriodText>
         </S.PeriodButton>
-        <S.PeriodButton isActive={false}>
-          <S.PeriodText isActive={false}>07:30</S.PeriodText>
+        <S.PeriodButton 
+          onPress={() => {
+            setSelectedHour(isEnabled ? '07:30' : '13:30')
+            setSelectedHourPosition('2')
+          }} 
+          isActive={selectedHourPosition === '2' ? true : false}>
+          <S.PeriodText isActive={selectedHour === '2' ? true : false}>
+            {isEnabled ? '07:30' : '13:30'}
+            </S.PeriodText>
         </S.PeriodButton>
-        <S.PeriodButton isActive={false}>
-          <S.PeriodText isActive={false}>08:00</S.PeriodText>
+        <S.PeriodButton 
+          onPress={() => {
+            setSelectedHour(isEnabled ? '08:00' : '14:00')
+            setSelectedHourPosition('3')}
+          } 
+          isActive={selectedHourPosition === '3' ? true : false}>
+          <S.PeriodText isActive={selectedHour === '3' ? true : false}>
+            {isEnabled ? '08:00' : '14:00'}
+            </S.PeriodText>
         </S.PeriodButton>
-        <S.PeriodButton isActive={false}>
-          <S.PeriodText isActive={false}>08:30</S.PeriodText>
+        <S.PeriodButton 
+          onPress={() => {
+            setSelectedHour(isEnabled ? '08:30' : '14:30')
+            setSelectedHourPosition('4')
+          }} 
+          isActive={selectedHourPosition === '4' ? true : false}>
+          <S.PeriodText isActive={selectedHour === '4' ? true : false}>
+            {isEnabled ? '08:30' : '14:30'}
+          </S.PeriodText>
         </S.PeriodButton>
       </S.PeriodWrapper>
       <S.PeriodContent>Horários disponíveis para esse período. Sujeito a variaçoes devido ao trânsito e as variações climáticas.</S.PeriodContent>
@@ -139,7 +181,10 @@ const Scheduling: React.FC = () => {
           <RadioButton 
             value="first"
             status={checked === 'first' ? 'checked' : 'unchecked'}
-            onPress={() => setChecked('first')}
+            onPress={() => {
+              setMarkedLocale('Minha casa')
+              setChecked('first')
+            }}
             uncheckedColor={theme.colors.brand_lt}
             color={theme.colors.brand_dk}
           />
@@ -155,7 +200,10 @@ const Scheduling: React.FC = () => {
         <RadioButton 
           value="second"
           status={checked === 'second' ? 'checked' : 'unchecked'}
-          onPress={() => setChecked('second')}
+          onPress={() => {
+            setMarkedLocale('Casa da Mainha')
+            setChecked('second')
+          }}
           uncheckedColor={theme.colors.brand_lt}
           color={theme.colors.brand_dk}
           />
@@ -169,7 +217,14 @@ const Scheduling: React.FC = () => {
 
       </S.PlaceWrapper>
       <S.ButtonConfirm>
-      <Button label='Agendar agora' onPress={() => console.log('Agendar Agora')} />
+      <Button label='Agendar agora' onPress={() => navigation.navigate("Confirmation", {
+        type: 'Faxina Padrão',
+        date: markedDates,
+        hour: selectedHour,
+        period: markedPeriod,
+        locale: markedLocale,
+        completeDateString: completeDate
+      })} />
       </S.ButtonConfirm>
       <S.Footer />
       </S.Container>

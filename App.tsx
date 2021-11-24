@@ -13,6 +13,7 @@ import {
 
 import {AppRoutes} from './src/routes/app.routes' 
 import theme from './src/global/styles/theme'
+import AppProvider from './src/hooks';
 // import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
@@ -27,15 +28,17 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        {Platform.OS === 'ios' && (
-          <View style={{ height: 40, backgroundColor: `${theme.colors.gray50}` }} />
-        )}
-        <StatusBar backgroundColor={theme.colors.gray50} />
-        <AppRoutes />
-      </NavigationContainer>
-    </ThemeProvider>
+    <AppProvider>
+      <ThemeProvider theme={theme}>
+        <NavigationContainer>
+          {Platform.OS === 'ios' && (
+            <View style={{ height: 40, backgroundColor: `${theme.colors.gray50}` }} />
+          )}
+          <StatusBar backgroundColor={theme.colors.gray50} />
+          <AppRoutes />
+        </NavigationContainer>
+      </ThemeProvider>
+    </AppProvider>
   );
 }
 

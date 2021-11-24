@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Image} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/core';
@@ -7,11 +7,20 @@ import VacuumCleaner from '../../assets/VacuumCleaner'
 import * as S from './styles';
 import { StackNavigationProp } from '@react-navigation/stack';
 import {RootNavigation} from '../../routes/app.routes'
+import {useLogin} from '../../hooks/login'
 
 type homeScreenProp = StackNavigationProp<RootNavigation, 'Home'>;
 
 const Home: React.FC = () => {
+  const {getToken, authToken} = useLogin();
   const navigation = useNavigation<homeScreenProp>() 
+
+  useEffect(() => {
+      getToken()
+      console.log('home', authToken)
+  }, [])
+
+
   return (
       <S.Fragment>
       <S.Container>

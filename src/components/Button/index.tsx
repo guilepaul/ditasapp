@@ -7,12 +7,13 @@ interface ButtonProps extends TouchableOpacityProps {
     onPress: () => void;
     label: string;
     type?: string;
+    small?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({onPress, label, type}) => {
+const Button: React.FC<ButtonProps> = ({onPress, label, type, small}) => {
   return (
-      <S.Container onPress={onPress}>
-          <S.Label>{label}</S.Label>
+      <S.Container type={type} small={small} onPress={onPress}>
+          <S.Label type={type}>{label}</S.Label>
       </S.Container>
   );
 }

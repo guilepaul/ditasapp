@@ -95,7 +95,7 @@ export const PeriodWrapper = styled.View`
   padding: 0 16px;
 `;
 
-export const PeriodButton = styled.View<PeriodButtonProps>`
+export const PeriodButton = styled.TouchableOpacity<PeriodButtonProps>`
   width: 56px;
   height: 26px;
   justify-content: center;

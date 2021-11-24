@@ -7,6 +7,8 @@ import { Platform } from 'react-native';
 
 import Home from '../pages/Home';
 import Scheduling from '../pages/Scheduling';
+import Confirmation from '../pages/Confirmation';
+import Success from '../pages/Success';
 
 
 const {Navigator, Screen} = createBottomTabNavigator<RootNavigation>();
@@ -14,6 +16,15 @@ const Stack = createStackNavigator<RootNavigation>();
 
 export type RootNavigation = {
     Scheduling: undefined;
+    Confirmation: {
+        type: string
+        date: string
+        hour: string
+        period: string
+        locale: string
+        completeDateString: string
+    };
+    Success: undefined;
     Tabs: undefined;
     Home: undefined;
     Início: undefined;
@@ -107,6 +118,8 @@ export function AppRoutes() {
         >
             <Stack.Screen name='Tabs' component={Tabs}/>
             <Stack.Screen name='Scheduling' component={Scheduling}/>
+            <Stack.Screen name='Confirmation' component={Confirmation}/>
+            <Stack.Screen name='Success' component={Success}/>
         </Stack.Navigator>
     )
   };
