@@ -1,11 +1,11 @@
 <div align="center" id="top"> 
-  <img src="https://i.imgur.com/CpJNyvM.png" alt="@stix&#x2F;stix Web Components" />
+  <img src="https://i.imgur.com/2icCfcQ.png" alt="Ditas app" />
 
 &#xa0;
 
 </div>
 
-<h1 align="center">@stix&#x2F;stix Web Components</h1>
+<h1 align="center">Ditas</h1>
 
 <p align="center">
   <a href="#dart-about">About</a> &#xa0; | &#xa0; 
@@ -21,33 +21,17 @@
 
 ## :dart: About
 
-O Design System da Stix é uma biblioteca de componentes (botões, cores, ícones, elementos de texto e de interface) programados que seguem os padrões semânticos de design e branding da marca Stix.
-
-A biblioteca é idealizada pela equipe de Design (CX) em conjunto com o time de desenvolvedores para facilitar a organização, a consistência (de design e de código) e a administração dos componentes dos sistemas da Stix onde há interface com o usuário.
+O Ditas app é uma aplicação mobile que visa ajudar o usuário a agendar um serviço de diarista.
 
 ## :sparkles: Features
 
-:heavy_check_mark: Accordion\
-:heavy_check_mark: BreadCrumbs\
-:heavy_check_mark: Button\
-:heavy_check_mark: CheckBox\
-:heavy_check_mark: Dialog\
-:heavy_check_mark: DropDown\
-:heavy_check_mark: Header\
-:heavy_check_mark: IconButton\
-:heavy_check_mark: LinkButton\
-:heavy_check_mark: PaginationItems\
-:heavy_check_mark: PaginationNumber\
-:heavy_check_mark: ProgressBar\
-:heavy_check_mark: RadioButton\
-:heavy_check_mark: Search\
-:heavy_check_mark: Select\
-:heavy_check_mark: Spiner-Button\
-:heavy_check_mark: TabBar\
-:heavy_check_mark: Tag\
-:heavy_check_mark: TextField\
-:heavy_check_mark: ToggleButton\
-:heavy_check_mark: Tooltip
+:heavy_check_mark: Login\
+:heavy_check_mark: Navegação\
+:heavy_check_mark: Agendamento\
+:heavy_check_mark: Conexão com API\
+:heavy_check_mark: Listagem de Agendamentos\
+:heavy_check_mark: Atualização de Perfil
+
 
 ## :rocket: Technologies
 
@@ -55,29 +39,50 @@ The following tools were used in this project:
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [React](https://pt-br.reactjs.org/)
-- [StoryBook](https://storybook.js.org)
+- [Expo](https://expo.dev)
 - [Node.js](https://nodejs.org/en/)
 - [Styled Components](https://styled-components.com)
 
 ## :white_check_mark: Requirements
 
-Use this library only for [ReactJs](https://pt-br.reactjs.org) projects. It can be [TypeScript](https://www.typescriptlang.org) or JavaScript[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript).
+Use this library only for [ReactJs](https://pt-br.reactjs.org) or [Expo](https://expo.dev) projects. It can be [TypeScript](https://www.typescriptlang.org) or JavaScript[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript).
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ## :checkered_flag: Starting
 
 ```bash
-# In our project
-$ npm install @stix/stix-web-components
+# Clone este repositório
+$ git clone <https://github.com/guilepaul/ditasapp>
 
-# Or
-$ yarn add @stix/stix-web-components
+# Acesse a pasta do projeto no terminal/cmd
+$ cd ditasapp
+
+# Instale as dependências
+$ yarn install
+  ou
+$ npm install
+
+# Execute o projeto com Expo
+$ expo start
+
+  ou
+  
+# Execute o projeto com React-Native cli
+$ yarn ios
+
 ```
+
 
 ## :memo: License
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
-Made with :heart: by <a href="https://gitlab.root.soustix.com.br" target="_blank">Stix App/Embedded Squad</a>
+Made with :heart: by <a href="https://github.com/guilepaul/ditasapp" target="_blank">Ditas App Squad</a>
 
 &#xa0;
 
