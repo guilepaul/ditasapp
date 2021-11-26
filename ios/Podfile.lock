@@ -14,6 +14,8 @@ PODS:
   - EXJSONUtils (0.2.0)
   - EXKeepAwake (10.0.0):
     - ExpoModulesCore
+  - EXLinearGradient (10.0.3):
+    - ExpoModulesCore
   - EXManifests (0.2.2):
     - EXJSONUtils
   - Expo (43.0.3):
@@ -333,6 +335,8 @@ PODS:
   - RNScreens (3.8.0):
     - React-Core
     - React-RCTImage
+  - RNSVG (12.1.1):
+    - React
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -344,6 +348,7 @@ DEPENDENCIES:
   - EXFont (from `../node_modules/expo-font/ios`)
   - EXJSONUtils (from `../node_modules/expo-json-utils/ios`)
   - EXKeepAwake (from `../node_modules/expo-keep-awake/ios`)
+  - EXLinearGradient (from `../node_modules/expo-linear-gradient/ios`)
   - EXManifests (from `../node_modules/expo-manifests/ios`)
   - Expo (from `../node_modules/expo/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core/ios`)
@@ -383,6 +388,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -406,6 +412,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-json-utils/ios"
   EXKeepAwake:
     :path: "../node_modules/expo-keep-awake/ios"
+  EXLinearGradient:
+    :path: "../node_modules/expo-linear-gradient/ios"
   EXManifests:
     :path: "../node_modules/expo-manifests/ios"
   Expo:
@@ -480,6 +488,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -493,6 +503,7 @@ SPEC CHECKSUMS:
   EXFont: 2e1c6fe726d008a039db80df95f48b4921b7fe59
   EXJSONUtils: f515cf71710855d7ba5bfc6752af3b9a6f6aad01
   EXKeepAwake: 8aa32396a5972d26e75e538603aad0f032396503
+  EXLinearGradient: 4d727eacb53d19ef25b02dd810e0199b453489ce
   EXManifests: 50e42e01335df4e54109dee7be5a91bfd37347db
   Expo: 5316c3ecdc34eb0cad340d01dc8beec97c7e879e
   ExpoModulesCore: a9a9bf32b2da35cd9b7299c80790c03a91ac7d15
@@ -530,6 +541,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: 024eff8202342abf4b24e11575a16afc441dabfe
   RNScreens: 6e1ea5787989f92b0671049b808aef64fa1ef98c
+  RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   Yoga: e6ecf3fa25af9d4c87e94ad7d5d292eedef49749
 
 PODFILE CHECKSUM: 1777d1f6f562465dd19378466d7c85385d5620e1

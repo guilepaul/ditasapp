@@ -12,13 +12,26 @@ import {
 } from 'date-fns';
 import pt from 'date-fns/locale/pt-BR';
 
+import {useAppointment} from '../../hooks/appointment'
+
 import * as S from './styles';
 import theme from '../../global/styles/theme';
 import Button from '../../components/Button';
 
 type confirmationScreenProp = StackNavigationProp<RootNavigation, 'Confirmation'>;
 
+interface AppintmentData {
+  date: string;
+  task_type: string;
+  period: string;
+  address: string;
+  amount: string;
+  note: string;
+}
+
 const Confirmation: React.FC = () => {
+
+    const {getAppointment, requestSuccess} = useAppointment();
 
     const navigation = useNavigation<confirmationScreenProp>();
     const route = useRoute<any>();
@@ -27,7 +40,11 @@ const Confirmation: React.FC = () => {
 
     const dateString = parseISO(route.params?.completeDateString);
 
+    const [schedulling, setShedulling] = useState<AppintmentData>({} as AppintmentData)
+
+
     useEffect(() => {
+      console.log(route.params?.completeDateString)
       const formatedDate = format(
         dateString,
         "'Dia' dd 'de' MMMM'",
@@ -41,10 +58,8 @@ const Confirmation: React.FC = () => {
       <S.Fragment>
           <Header title='Agendar Agora' onPress={() => {
         if (navigation.canGoBack()) {
-          console.log('deu aqui')
           navigation.goBack();
         } else {
-          console.log('nao deu aqui')
           navigation.reset({ index: 0, routes: [{ name: 'Home' }] });
         }
       }}/>
@@ -130,8 +145,17 @@ const Confirmation: React.FC = () => {
             <Button  
               small 
               onPress={() => {
+                console.log('fsdad',schedulling)
                 setModalVisible(false)
-                navigation.navigate("Success")
+                getAppointment(schedulling.date, 
+                  schedulling.task_type, 
+                  schedulling.period, 
+                  schedulling.address,
+                  schedulling.amount,
+                  schedulling.note)
+                  if(requestSuccess === true){
+                    navigation.navigate("Success")
+                  }
               }} 
               label='Sim, quero finalizar' 
               />
@@ -151,7 +175,16 @@ const Confirmation: React.FC = () => {
       </S.ModalConfirmation>
       </S.Container>
       <S.ButtonConfirm>
-      <Button label='Finalizar agendamento' onPress={() =>  setModalVisible(true)} />
+      <Button label='Finalizar agendamento' onPress={() =>  {
+        setShedulling({
+          date: route.params.completeDateString, 
+          task_type: route.params.type, 
+          period: route.params.period, 
+          address: 'Rua Dos Girassóis, 15 - CEP - 03615-000',
+          amount: '79,90',
+          note: 'Chave debaixo do Tapete' })
+          console.log(schedulling)
+        setModalVisible(true)}} />
       </S.ButtonConfirm>
       </S.Fragment>
   );
